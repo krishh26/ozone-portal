@@ -1,4 +1,5 @@
 import { API_BASE_URL } from "../config/env";
+import { resolveMediaTree, resolveMediaUrl } from "./mediaUrl";
 
 const TOKEN_KEY = "ozone.auth.token";
 
@@ -54,5 +55,5 @@ export async function apiFetch<T>(path: string, options: RequestInit = {}): Prom
     throw new ApiError(res.status, message);
   }
 
-  return (await res.json()) as T;
+  return resolveMediaTree((await res.json()) as T);
 }

@@ -1,5 +1,6 @@
 import { API_BASE_URL } from "../config/env";
 import { ApiError, apiFetch, getAuthToken, setAuthToken } from "../lib/api";
+import { resolveMediaUrl } from "../lib/mediaUrl";
 
 export interface User {
   id: string;
@@ -259,7 +260,7 @@ async function uploadImageFile(file: File, path: string): Promise<string> {
   }
 
   const payload = (await res.json()) as ApiEnvelope<{ url: string }>;
-  return payload.data.url;
+  return resolveMediaUrl(payload.data.url);
 }
 
 export interface GalleryItem {
