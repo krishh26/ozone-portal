@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "../config/env";
-import { resolveMediaTree, resolveMediaUrl } from "./mediaUrl";
+import { resolveMediaTree } from "./mediaUrl";
 
 const TOKEN_KEY = "ozone.auth.token";
 
